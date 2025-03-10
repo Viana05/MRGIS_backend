@@ -1,0 +1,39 @@
+-- 用户表
+create table user (
+                      id int unsigned primary key auto_increment comment 'ID',
+                      username varchar(20) not null unique comment '姓名',
+                      password varchar(32)  comment '密码',
+                      gender int unsigned  default '0' comment '性别: 只能是[男] 或者 [女]',
+											identity varchar(20)  default '' comment '身份: 只能是[老师] 或者 [学生]',
+                      email varchar(128) default '' comment '邮箱',
+                      user_pic varchar(128) default '' comment '头像',
+                      create_time datetime not null comment '创建时间',
+                      update_time datetime not null comment '修改时间'
+) comment '用户表';
+
+-- 任务表
+create table task(
+                         id int unsigned primary key auto_increment comment 'ID',
+                         task_name varchar(32) not null comment '任务名称',
+												 task_content varchar(10000) not null comment '任务内容',
+												 task_cover varchar(128) not null  comment '任务封面',
+-- 												 task_state varchar(3) default '草稿' comment '任务状态: 只能是[已发布] 或者 [草稿]',
+												 task_location varchar(128) not null  comment '任务位置',
+                         create_user int unsigned not null comment '创建人ID',
+                         create_time datetime not null comment '创建时间',
+                         update_time datetime not null comment '修改时间',
+                         constraint fk_category_user foreign key (create_user) references user(id) -- 外键约束
+)comment '任务表';
+
+-- 讨论表
+-- create table article(
+--                         id int unsigned primary key auto_increment comment 'ID',
+--                         discu_title varchar(30) not null comment '讨论标题',
+--                         discu_content varchar(10000) not null comment '讨论内容',
+--                         discu_cover varchar(128) not null  comment '讨论封面',
+--                         discu_state varchar(3) default '草稿' comment '讨论状态: 只能是[已发布] 或者 [草稿]',
+--                         create_user int unsigned not null comment '创建人ID',
+--                         create_time datetime not null comment '创建时间',
+--                         update_time datetime not null comment '修改时间',
+--                         constraint fk_article_user foreign key (create_user) references user(id) -- 外键约束
+-- )comment '讨论表';
