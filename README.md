@@ -9,3 +9,6 @@
 #### 4、数据库建表语句在found_sql.txt
 
 #### 注意maven下载好依赖！！
+
+#### 5、安装router,npm install vue-router@4
+
