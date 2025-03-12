@@ -16,9 +16,6 @@ public class Task {
     private String taskName;//任务名称
     @NotEmpty
     private String taskContent;//任务内容
-    @NotEmpty
-    @URL
-    private String taskCover;//任务封面
     private String taskLocation;//任务位置
     private Integer createUser;//创建人ID
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
