@@ -15,7 +15,7 @@ public interface UserMapper {
     void add(String username, String md5String,String identity);
 
     //更新用户信息
-    @Update("update user set gender=#{gender},email=#{email},update_time=now() where id=#{id}")
+    @Update("update user set gender=#{gender},identity=#{identity},email=#{email},update_time=now() where id=#{id}")
     void update(User user);
 
     //更新用户头像
